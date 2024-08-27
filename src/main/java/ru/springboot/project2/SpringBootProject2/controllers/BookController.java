@@ -14,6 +14,8 @@ import ru.springboot.project2.SpringBootProject2.models.Person;
 import ru.springboot.project2.SpringBootProject2.service.BooksService;
 import ru.springboot.project2.SpringBootProject2.service.PeopleService;
 
+import java.util.ArrayList;
+
 
 @Controller
 @RequestMapping("/books")
@@ -117,7 +119,8 @@ public class BookController {
     }
 
     @GetMapping("/search")
-    public String search() {
+    public String search(Model model) {
+        model.addAttribute("books", new ArrayList<>());
         return "book/search";
     }
 
